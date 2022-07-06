@@ -1,0 +1,127 @@
+<div class="container">
+    <div class="text-center my-5">
+        <h1 class="text-info">Welcome</h1>
+        <h5 class="text-muted p-0">Register here to continue</h5>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <h2 class="text-white text-center bg-info py-2 mb-3">Register an account</h2>
+            <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+                <div class="form-group mr-2 mb-3">
+                    <input type="text" formControlName="userFname" class="form-control rounded-pill pl-4 py-3" required
+                        placeholder="Enter Full Name" name="" id="">
+                    <div *ngIf="!signUpForm.get('userFname').valid && signUpForm.get('userFname').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                        Please Enter Full Name..!
+                    </div>
+                </div>
+                <div class="form-group mr-2 mb-3">
+                    <input type="text" formControlName="userName" class="form-control rounded-pill pl-4 py-3" required
+                        placeholder="Enter User Name" name="" id="">
+                    <div *ngIf="!signUpForm.get('userName').valid && signUpForm.get('userName').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                        Please Enter User Name..!
+                    </div>
+                </div>
+                <div class="form-group mr-2 mb-3">
+                    <input type="text" pattern="[0-9]{9}" formControlName="userContact"
+                        class="form-control rounded-pill pl-4 py-3" required placeholder="Enter Contact Number"
+                        name="" id="">
+                    <div *ngIf="!signUpForm.get('userContact').valid && signUpForm.get('userContact').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                        Please Enter Contact Number...!
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <input type="email" formControlName="userEmail" required placeholder="awesome@user.com"
+                        class="form-control rounded-pill pl-4 py-3">
+                    <div *ngIf="!signUpForm.get('userEmail').valid && signUpForm.get('userEmail').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                        Please Enter Email...!
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <input type="password" role="" formControlName="userPassword" placeholder="Enter password"
+                        class="form-control rounded-pill pl-4 py-2">
+                    <div *ngIf="!signUpForm.get('userPassword').valid && signUpForm.get('userPassword').touched" role="alert">
+                        <p class="alert alert-danger pl-4 mt-2 rounded-pill">Please Enter Password</p>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <select class="form-control rounded-pill pl-3" formControlName="userRole">
+                        <option value="">Choose Role</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Recruiter">Recruiter</option>
+                        <option value="Interviewer">Interviewer</option>
+                    </select>
+                    <div *ngIf="!signUpForm.get('userRole').valid && signUpForm.get('userRole').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill">
+                        Please select role
+                    </div>
+                </div>
+                <div class="form-group mb-3 text-center">
+                    <input type="submit" class="btn btn-info btn-lg btn-block rounded-pill py-1" value="Sign Up">
+                </div>
+            </form>
+        </div>
+
+
+
+
+        <!-- <div class="col-5 ml-4">
+            <h2 class="text-white text-center bg-info py-2 mb-3">Register as a Recruiter</h2>
+            <form (ngSubmit)="onRecruiterSubmit()" [formGroup]="recruiterSignUpForm">
+                <div class="form-group mb-3">
+                    <input type="text" placeholder="Enter Name" required formControlName="recruiterName"
+                        class="form-control rounded-pill pl-4 py-3">
+                    <div *ngIf="!recruiterSignUpForm.get('recruiterName').valid && recruiterSignUpForm.get('recruiterName').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                        Please Enter Full Name..!
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <input type="text" placeholder="Enter Username" required formControlName="recruiterUsrname"
+                        class="form-control rounded-pill pl-4 py-3">
+                    <div *ngIf="!recruiterSignUpForm.get('recruiterUsrname').valid && recruiterSignUpForm.get('recruiterUsrname').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                        Please Enter User Name..!
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <input type="email" placeholder="Enter Email" required formControlName="recruiterEmail"
+                        class="form-control rounded-pill pl-4 py-3">
+                    <div *ngIf="!recruiterSignUpForm.get('recruiterEmail').valid && recruiterSignUpForm.get('recruiterEmail').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                        Please Enter Email..!
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-12">
+                        <input type="tel" pattern="[0-9]{9}" placeholder="Enter Contact Number" required
+                            formControlName="recruiterContact" class="form-control rounded-pill pl-4 py-3">
+                        <div *ngIf="!recruiterSignUpForm.get('recruiterContact').valid && recruiterSignUpForm.get('recruiterContact').touched"
+                            class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                            Please Enter Contact Number.!
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <input type="password" required formControlName="recruiterPassword" placeholder="Enter password"
+                        class="form-control rounded-pill pl-4 py-3">
+                    <div *ngIf="!recruiterSignUpForm.get('recruiterPassword').valid && recruiterSignUpForm.get('recruiterPassword').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                        Please Enter Password..!
+                    </div>
+                </div>
+                <div class="form-group mb-">
+                    <input type="submit" class="btn btn-info btn-lg btn-block rounded-pill py-1" value="Submit">
+                </div>
+            </form>
+        </div> -->
+    </div>
+    <div class="text-center pt-1">
+        <a routerLink="/login"
+            class="text-decoration-none text-info ml-2">Already have login and password? Sign in
+        </a>
+    </div>
+</div>

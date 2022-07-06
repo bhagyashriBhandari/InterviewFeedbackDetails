@@ -1,0 +1,115 @@
+<div class="text-center my-5">
+    <h1 class="text-info mb-3">Interview Feedback Form</h1>
+    <h5 class="text-muted p-0 mb-4">Please fill up this form</h5>
+    <div>
+        <h3 class="mb-3">Candidate should be rated on a scale from 1 to 5</h3>
+        <h6 class="mb-3">5. Exceeds requirements</h6>
+        <h6 class="mb-3">4. Above average</h6>
+        <h6 class="mb-3">3. Average</h6>
+        <h6 class="mb-3">2. Below average</h6>
+        <h6 class="mb-3">1. Far below average</h6>
+    </div>
+</div>
+<div class="row">
+    <div class="col-5 mr-5">
+        <form [formGroup]="feedbackForm" (ngSubmit)="onFeedbackSubmit()">
+            <div class="form-group mb-3">
+                <label for="">Candidate Name</label>
+                <input type="text" formControlName="candidateName" class="form-control rounded-pill pl-4 py-3" required
+                        placeholder="Enter Full Name" name="" id="">
+                <div *ngIf="!feedbackForm.get('candidateName').valid && feedbackForm.get('candidateName').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                    Please Enter Full Name..!
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="interviewer">Interviewer</label>
+                <select class="form-control rounded-pill pl-3" formControlName="interviewer">
+                    <option value="">Choose</option>
+                    <option value="Aakash">Aakash</option>
+                    <option value="Shashank">Shashank</option>
+                </select>
+                <div *ngIf="!feedbackForm.get('interviewer').valid && feedbackForm.get('interviewer').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                    Please select interviewer..!
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="position">Position</label>
+                <select class="form-control rounded-pill pl-3" formControlName="position">
+                    <option value="">Choose</option>
+                    <option value="React">React Developer</option>
+                    <option value="Angular">Angular Developer</option>
+                    <option value="Java">Java Developer</option>
+                    <option value="Test">Test Engineer</option>
+                    <option value="React Native">React Native</option>
+                    <option value="UX Designer">UX Designer</option>
+                </select>
+                <div *ngIf="!feedbackForm.get('position').valid && feedbackForm.get('position').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                    Please select position..!
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="jsRating">Javascript Fundamentals</label>
+                <input type="number" formControlName="jsFundamentals" class="form-control rounded-pill pl-3" max="5" min="1" placeholder="Enter rating">
+                <div *ngIf="!feedbackForm.get('jsFundamentals').valid && feedbackForm.get('jsFundamentals').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                    Please rate the candidate between 1 to 5..!
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="htmlCSS">HTML & CSS</label>
+                <input type="number" id="htmlCSS" formControlName="htmlCSS" class="form-control rounded-pill pl-3" max="5" min="1" placeholder="Enter rating">
+                <div *ngIf="!feedbackForm.get('htmlCSS').valid && feedbackForm.get('htmlCSS').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                    Please rate the candidate between 1 to 5..!
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="reactAngular">React/Angular</label>
+                <input type="number" id="reactAngular" formControlName="reactAngular" class="form-control rounded-pill pl-3" max="5" min="1" placeholder="Enter rating">
+                <div *ngIf="!feedbackForm.get('reactAngular').valid && feedbackForm.get('reactAngular').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                    Please rate the candidate between 1 to 5..!
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="technical">Technical Rating</label>
+                <input type="number" id="technical" formControlName="technical" class="form-control rounded-pill pl-3" max="5" min="1" placeholder="Enter rating">
+                <div *ngIf="!feedbackForm.get('technical').valid && feedbackForm.get('technical').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                    Please rate the candidate between 1 to 5..!
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="communication">Communication Rating</label>
+                <input type="number" id="communication" formControlName="communication" class="form-control rounded-pill pl-3" max="5" min="1" placeholder="Enter rating">
+                <div *ngIf="!feedbackForm.get('communication').valid && feedbackForm.get('communication').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                    Please rate the candidate between 1 to 5..!
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="result">Result</label>
+                <select class="form-control rounded-pill pl-3" formControlName="result">
+                    <option value="">Choose</option>
+                    <option value="Selected">Selected</option>
+                    <option value="Rejected">Rejected</option>
+                    <option value="Technical Round 2">Technical Round 2</option>
+                </select>
+                <div *ngIf="!feedbackForm.get('result').valid && feedbackForm.get('result').touched"
+                        class="alert alert-danger pl-3 py-1 mt-2 rounded-pill" role="alert">
+                    Please enter result..!
+                </div>
+            </div>
+            <div class="form-group mt-4 text-center">
+                <button type="submit" class="btn btn-info w-100 py-2 rounded-pill">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
